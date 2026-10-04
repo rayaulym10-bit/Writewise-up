@@ -1,0 +1,24 @@
+import streamlit as st
+import random
+
+st.set_page_config(page_title="WriteWise IELTS", page_icon="🎓", layout="centered")
+
+# --- ҰПАЙ ЖҮЙЕСІ ---
+if "points" not in st.session_state:
+    st.session_state.points = 0
+if "streak" not in st.session_state:
+    st.session_state.streak = 0
+if "lesson" not in st.session_state:
+    st.session_state.lesson = 1
+
+st.title("🎓 WriteWise - IELTS Edition")
+st.markdown(f"### 💰 Ұпайың: {st.session_state.points} | 🔥 Күн: {st.session_state.streak}")
+
+# Күнделікті бонус
+if st.button("🎁 Күнделікті бонус алу (+10 ұпай)"):
+    st.session_state.points += 10
+    st.session_state.streak += 1
+    st.success("Бонус алдың! +10 ұпай!")
+    st.balloons()
+
+tab1, tab2, tab3 = st
